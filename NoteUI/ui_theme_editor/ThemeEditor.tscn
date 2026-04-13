@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://c4ewrkkk5bvek"]
+
+[ext_resource type="Script" uid="uid://j72mt26jl63u" path="res://NotesAPP/NoteUI/ui_theme_editor/ThemeEditor.gd" id="1_tijcc"]
+[ext_resource type="Script" uid="uid://duooidismj0sv" path="res://NotesAPP/NoteUI/ui_theme_editor/gallery.gd" id="2_76apn"]
+
+[node name="ThemeEditor" type="Control" unique_id=591340044]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tijcc")
+
+[node name="Gallery" type="GridContainer" parent="." unique_id=315694050]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_76apn")
+
+[node name="LeftPanel" type="VBoxContainer" parent="." unique_id=2094842677]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Btn_Save" type="Button" parent="LeftPanel" unique_id=2141053268]
+layout_mode = 2
+
+[node name="Btn_Load" type="Button" parent="LeftPanel" unique_id=1734575020]
+layout_mode = 2
+
+[node name="TextureDrop" type="Panel" parent="LeftPanel" unique_id=1630289565]
+layout_mode = 2
+
+[node name="Color_BG" type="ColorPickerButton" parent="LeftPanel" unique_id=1318767767]
+layout_mode = 2
+
+[node name="Color_Text" type="ColorPickerButton" parent="LeftPanel" unique_id=1091755964]
+layout_mode = 2
+
+[node name="Color_Button" type="ColorPickerButton" parent="LeftPanel" unique_id=1484098930]
+layout_mode = 2
+
+[node name="Color_Accent" type="ColorPickerButton" parent="LeftPanel" unique_id=1779025039]
+layout_mode = 2
+
+[node name="Color_Input" type="ColorPickerButton" parent="LeftPanel" unique_id=1842443261]
+layout_mode = 2
+
+[node name="Color_Progress" type="ColorPickerButton" parent="LeftPanel" unique_id=1318741831]
+layout_mode = 2
+
+[node name="PreviewRoot" type="Control" parent="." unique_id=1640308463]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PreviewRoot" unique_id=800056219]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="PreviewRoot/VBoxContainer" unique_id=1370736098]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PreviewRoot/VBoxContainer" unique_id=1524639823]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="PreviewRoot/VBoxContainer" unique_id=1270616361]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="PreviewRoot/VBoxContainer" unique_id=603850671]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="PreviewRoot/VBoxContainer" unique_id=550991471]
+layout_mode = 2
+
+[node name="Btn_Refresh" type="Button" parent="." unique_id=1045323198]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="pressed" from="LeftPanel/Btn_Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="LeftPanel/Btn_Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Btn_Refresh" to="." method="refresh_ui"]

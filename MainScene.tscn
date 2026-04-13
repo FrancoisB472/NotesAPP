@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://db24ovwkgnlwm"]
+
+[ext_resource type="Script" uid="uid://cmfe88fx7o4ng" path="res://NotesAPP/main_scene.gd" id="1_7txu1"]
+[ext_resource type="Script" uid="uid://dg30gu62pow7y" path="res://NotesAPP/NoteUI/ThemeBuilder.gd" id="2_gcq4y"]
+
+[node name="MainScene" type="Control" unique_id=52844251]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7txu1")
+
+[node name="Panel" type="Panel" parent="." unique_id=1145314403]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1154434039]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="Panel/MarginContainer" unique_id=1937633575]
+layout_mode = 2
+current_tab = 1
+
+[node name="Control2" type="Control" parent="Panel/MarginContainer/TabContainer" unique_id=2125343026]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="ThemeBuilder" type="Control" parent="Panel/MarginContainer/TabContainer" unique_id=618505813]
+layout_mode = 2
+script = ExtResource("2_gcq4y")
+metadata/_custom_type_script = "uid://dg30gu62pow7y"
+metadata/_tab_index = 1
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/TabContainer/ThemeBuilder" unique_id=344356161]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="pressed" from="Panel/MarginContainer/TabContainer/ThemeBuilder/Button" to="." method="save_theme_pressed"]
