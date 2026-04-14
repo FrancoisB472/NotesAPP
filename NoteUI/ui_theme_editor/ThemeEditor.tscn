@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://j72mt26jl63u" path="res://NotesAPP/NoteUI/ui_theme_editor/ThemeEditor.gd" id="1_tijcc"]
 [ext_resource type="Script" uid="uid://duooidismj0sv" path="res://NotesAPP/NoteUI/ui_theme_editor/gallery.gd" id="2_76apn"]
+[ext_resource type="Script" uid="uid://dlgy0741bpm03" path="res://NotesAPP/NoteUI/ui_theme_editor/preview_root.gd" id="3_mdo2x"]
 
-[node name="ThemeEditor" type="Control" unique_id=591340044]
+[node name="ThemeEditor" type="Control" unique_id=591340044 node_paths=PackedStringArray("gallery", "bg_picker", "text_picker", "button_picker", "accent_picker", "input_picker", "progress_picker")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,75 +12,300 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tijcc")
+gallery = NodePath("PanelContainer/VBoxContainer/PanelContainer3/MarginContainer/ScrollContainer/Gallery")
+bg_picker = NodePath("PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer/Color_BG")
+text_picker = NodePath("PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer2/Color_Text")
+button_picker = NodePath("PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer3/Color_Button")
+accent_picker = NodePath("PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer4/Color_Accent")
+input_picker = NodePath("PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer5/Color_Input")
+progress_picker = NodePath("PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer6/Color_Progress")
 
-[node name="Gallery" type="GridContainer" parent="." unique_id=315694050]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=390439884]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1150292496]
+layout_mode = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="PanelContainer/VBoxContainer" unique_id=1846955719]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/PanelContainer3" unique_id=1811364445]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/PanelContainer3/MarginContainer" unique_id=1759614034]
+layout_mode = 2
+
+[node name="Gallery" type="HBoxContainer" parent="PanelContainer/VBoxContainer/PanelContainer3/MarginContainer/ScrollContainer" unique_id=595997207]
+layout_mode = 2
 script = ExtResource("2_76apn")
 
-[node name="LeftPanel" type="VBoxContainer" parent="." unique_id=2094842677]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1828557478]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
 
-[node name="Btn_Save" type="Button" parent="LeftPanel" unique_id=2141053268]
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1823813366]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer" unique_id=1591523181]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer" unique_id=911877486]
 layout_mode = 2
 
-[node name="Btn_Load" type="Button" parent="LeftPanel" unique_id=1734575020]
+[node name="LeftPanel" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer" unique_id=2094842677]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Btn__New" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=105877492]
+layout_mode = 2
+text = "New Theme"
+
+[node name="Btn_Save" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=2141053268]
+layout_mode = 2
+text = "Save"
+
+[node name="Btn_Load" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=1734575020]
+layout_mode = 2
+text = "Load"
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=1973077413]
+layout_mode = 2
+text = "Texture Box"
+
+[node name="TextureDrop" type="Panel" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=1630289565]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 
-[node name="TextureDrop" type="Panel" parent="LeftPanel" unique_id=1630289565]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=1528363912]
 layout_mode = 2
 
-[node name="Color_BG" type="ColorPickerButton" parent="LeftPanel" unique_id=1318767767]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer" unique_id=1176860350]
 layout_mode = 2
 
-[node name="Color_Text" type="ColorPickerButton" parent="LeftPanel" unique_id=1091755964]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer" unique_id=1085705568]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Background Colour"
+
+[node name="Color_BG" type="ColorPickerButton" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer" unique_id=1318767767]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "Background"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer" unique_id=806538608]
 layout_mode = 2
 
-[node name="Color_Button" type="ColorPickerButton" parent="LeftPanel" unique_id=1484098930]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer2" unique_id=1008582779]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Text Colour"
+
+[node name="Color_Text" type="ColorPickerButton" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer2" unique_id=1091755964]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "Text"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer" unique_id=1482151832]
 layout_mode = 2
 
-[node name="Color_Accent" type="ColorPickerButton" parent="LeftPanel" unique_id=1779025039]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer3" unique_id=581031962]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Button Colour"
+
+[node name="Color_Button" type="ColorPickerButton" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer3" unique_id=1484098930]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "Button"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer" unique_id=699777852]
 layout_mode = 2
 
-[node name="Color_Input" type="ColorPickerButton" parent="LeftPanel" unique_id=1842443261]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer4" unique_id=1293776367]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Accent Colour"
+
+[node name="Color_Accent" type="ColorPickerButton" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer4" unique_id=1779025039]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "Accent"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer" unique_id=1168647296]
 layout_mode = 2
 
-[node name="Color_Progress" type="ColorPickerButton" parent="LeftPanel" unique_id=1318741831]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer5" unique_id=251876064]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Input Colour"
+
+[node name="Color_Input" type="ColorPickerButton" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer5" unique_id=1842443261]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "Input"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer" unique_id=270633815]
 layout_mode = 2
 
-[node name="PreviewRoot" type="Control" parent="." unique_id=1640308463]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer6" unique_id=1603272443]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Progress Fill Colour"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PreviewRoot" unique_id=800056219]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Color_Progress" type="ColorPickerButton" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer6" unique_id=1318741831]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "Progress"
 
-[node name="Label" type="Label" parent="PreviewRoot/VBoxContainer" unique_id=1370736098]
+[node name="HBoxContainer7" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer" unique_id=823664211]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="PreviewRoot/VBoxContainer" unique_id=1524639823]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer7" unique_id=1564461129]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Font Size"
+
+[node name="SpinBox" type="SpinBox" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer7" unique_id=1746465088]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer" unique_id=201717219]
 layout_mode = 2
 
-[node name="OptionButton" type="OptionButton" parent="PreviewRoot/VBoxContainer" unique_id=1270616361]
+[node name="FontFileButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer8" unique_id=1507409227]
+layout_mode = 2
+text = "Select a Font to use for this Theme"
+
+[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=587591400]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2" unique_id=1246262348]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="PreviewRoot" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer" unique_id=1640308463]
+layout_mode = 2
+script = ExtResource("3_mdo2x")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/PreviewRoot" unique_id=2012510065]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/PreviewRoot/ScrollContainer" unique_id=800056219]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/PreviewRoot/ScrollContainer/VBoxContainer" unique_id=1370736098]
+layout_mode = 2
+text = "This is a label"
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/PreviewRoot/ScrollContainer/VBoxContainer" unique_id=1524639823]
+layout_mode = 2
+text = "This is a button"
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/PreviewRoot/ScrollContainer/VBoxContainer" unique_id=1270616361]
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "This is a item"
+popup/item_0/id = 0
+popup/item_1/text = "This is a item"
+popup/item_1/id = 1
+popup/item_2/text = "This is a item"
+popup/item_2/id = 2
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/PreviewRoot/ScrollContainer/VBoxContainer" unique_id=603850671]
+layout_mode = 2
+placeholder_text = "This is a Line Edit"
+
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/PreviewRoot/ScrollContainer/VBoxContainer" unique_id=550991471]
 layout_mode = 2
 
-[node name="LineEdit" type="LineEdit" parent="PreviewRoot/VBoxContainer" unique_id=603850671]
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="PreviewRoot/VBoxContainer" unique_id=550991471]
-layout_mode = 2
+[node name="Panel" type="Panel" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/PreviewRoot" unique_id=1839608339]
+modulate = Color(0, 0, 0, 0.14901961)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Btn_Refresh" type="Button" parent="." unique_id=1045323198]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 68.0
+grow_vertical = 0
+text = "Refresh"
 
-[connection signal="pressed" from="LeftPanel/Btn_Save" to="." method="_on_save_pressed"]
-[connection signal="pressed" from="LeftPanel/Btn_Load" to="." method="_on_load_pressed"]
+[node name="DeletePopup" type="PopupPanel" parent="." unique_id=2131731979]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DeletePopup" unique_id=603123676]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 96.0
+offset_bottom = 96.0
+
+[node name="Label" type="Label" parent="DeletePopup/VBoxContainer" unique_id=1819948179]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DeletePopup/VBoxContainer" unique_id=988103832]
+layout_mode = 2
+
+[node name="Btn_Yes" type="Button" parent="DeletePopup/VBoxContainer/HBoxContainer" unique_id=1585129497]
+layout_mode = 2
+text = "Yes"
+
+[node name="Btn_No" type="Button" parent="DeletePopup/VBoxContainer/HBoxContainer" unique_id=1224612184]
+layout_mode = 2
+text = "No"
+
+[node name="FontFileDialog" type="FileDialog" parent="." unique_id=1584153804]
+access = 2
+use_native_dialog = true
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/Btn__New" to="." method="_on_new_theme_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/Btn_Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/Btn_Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer8/FontFileButton" to="." method="_on_font_file_button_pressed"]
 [connection signal="pressed" from="Btn_Refresh" to="." method="refresh_ui"]
+[connection signal="pressed" from="DeletePopup/VBoxContainer/HBoxContainer/Btn_Yes" to="." method="_on_btn_yes_pressed"]
+[connection signal="pressed" from="DeletePopup/VBoxContainer/HBoxContainer/Btn_No" to="." method="_on_btn_no_pressed"]
+[connection signal="file_selected" from="FontFileDialog" to="." method="_on_font_file_dialog_file_selected"]

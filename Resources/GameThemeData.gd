@@ -1,12 +1,16 @@
 extends Resource
 class_name GameThemeData
 
+@export var id: String
+
 @export_group("Containers")
 @export var container_bg : Color = Color(0.15,0.15,0.15)
 @export var container_texture : Texture2D
 
 @export_group("Font")
 @export var font : Font
+@export var font_path: String = ""
+@export var font_size : int = 16
 @export var text_colour : Color = Color.WHITE
 
 @export_group("Accent")
