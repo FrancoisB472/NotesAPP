@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://db24ovwkgnlwm"]
 
 [ext_resource type="Script" uid="uid://cmfe88fx7o4ng" path="res://NotesAPP/main_scene.gd" id="1_7txu1"]
-[ext_resource type="PackedScene" uid="uid://c4ewrkkk5bvek" path="res://NotesAPP/NoteUI/ui_theme_editor/ThemeEditor.tscn" id="2_7txu1"]
+[ext_resource type="PackedScene" uid="uid://c4ewrkkk5bvek" path="res://NotesAPP/ThemeData/ui_theme_editor/ThemeEditor.tscn" id="2_7txu1"]
+[ext_resource type="PackedScene" uid="uid://t3dq0dc7ajdi" path="res://NotesAPP/tool_window.tscn" id="2_gcq4y"]
+[ext_resource type="Script" uid="uid://fk01ahi8niq4" path="res://NotesAPP/desktop.gd" id="2_nwb8l"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_nwb8l"]
 
 [node name="MainScene" type="Control" unique_id=52844251]
 layout_mode = 3
@@ -10,17 +14,30 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_7txu1")
 
-[node name="Panel" type="Panel" parent="." unique_id=1145314403]
+[node name="Desktop" type="Control" parent="." unique_id=1309923245]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("2_nwb8l")
+click_mask_texture = SubResource("CanvasTexture_nwb8l")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1154434039]
+[node name="ToolWindow" parent="Desktop" unique_id=787210304 instance=ExtResource("2_gcq4y")]
+layout_mode = 1
+offset_right = -392.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Panel" type="Panel" parent="Desktop/ToolWindow/PanelContainer/MarginContainer" parent_id_path=PackedInt32Array(787210304, 1319997124) index="0" unique_id=118952605]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Desktop/ToolWindow/PanelContainer/MarginContainer/Panel" unique_id=1904401345]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,10 +49,25 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="TabContainer" type="TabContainer" parent="Panel/MarginContainer" unique_id=1937633575]
+[node name="TabContainer" type="TabContainer" parent="Desktop/ToolWindow/PanelContainer/MarginContainer/Panel/MarginContainer" unique_id=341244754]
 layout_mode = 2
 current_tab = 0
 
-[node name="ThemeEditor" parent="Panel/MarginContainer/TabContainer" unique_id=591340044 instance=ExtResource("2_7txu1")]
+[node name="ThemeEditor" parent="Desktop/ToolWindow/PanelContainer/MarginContainer/Panel/MarginContainer/TabContainer" unique_id=591340044 instance=ExtResource("2_7txu1")]
 layout_mode = 2
 metadata/_tab_index = 0
+
+[node name="Button" type="Button" parent="Desktop/ToolWindow/PanelContainer/MarginContainer/Panel/MarginContainer" unique_id=1275494163]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Create Note"
+
+[node name="FPS" type="Label" parent="Desktop/ToolWindow/PanelContainer/MarginContainer" parent_id_path=PackedInt32Array(787210304, 1319997124) index="1" unique_id=406338276]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[connection signal="pressed" from="Desktop/ToolWindow/PanelContainer/MarginContainer/Panel/MarginContainer/Button" to="." method="_on_button_pressed"]
+
+[editable path="Desktop/ToolWindow"]

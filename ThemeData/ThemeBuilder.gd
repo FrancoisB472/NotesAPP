@@ -6,6 +6,12 @@ static func apply_radius(sb: StyleBoxFlat, r := 8) -> StyleBoxFlat:
 	sb.corner_radius_top_right = r
 	sb.corner_radius_bottom_left = r
 	sb.corner_radius_bottom_right = r
+	
+	sb.expand_margin_bottom = r / 2
+	sb.expand_margin_top = r / 2
+	sb.expand_margin_left = r / 2
+	sb.expand_margin_right = r/ 2
+	
 	return sb
 
 

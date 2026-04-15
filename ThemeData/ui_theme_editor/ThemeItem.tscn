@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dlju8da0p0mla"]
 
-[ext_resource type="Script" uid="uid://dwu4mpc521dkw" path="res://NotesAPP/NoteUI/ui_theme_editor/theme_item.gd" id="1_ucijw"]
+[ext_resource type="Script" uid="uid://dwu4mpc521dkw" path="res://NotesAPP/ThemeData/ui_theme_editor/theme_item.gd" id="1_ucijw"]
 
 [node name="ThemeItem" type="Control" unique_id=1318095940]
 custom_minimum_size = Vector2(112, 112)
