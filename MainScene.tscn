@@ -45,11 +45,76 @@ theme_override_constants/margin_bottom = 8
 
 [node name="TabContainer" type="TabContainer" parent="PanelContainer/MarginContainer/Panel/MarginContainer" unique_id=341244754]
 layout_mode = 2
-current_tab = 0
+current_tab = 2
 
-[node name="ThemeEditor" parent="PanelContainer/MarginContainer/Panel/MarginContainer/TabContainer" unique_id=591340044 instance=ExtResource("2_7txu1")]
+[node name="Info Tab" type="Control" parent="PanelContainer/MarginContainer/Panel/MarginContainer/TabContainer" unique_id=2012282266]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/Panel/MarginContainer/TabContainer/Info Tab" unique_id=1395576438]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/Panel/MarginContainer/TabContainer/Info Tab/MarginContainer" unique_id=1238221301]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/Panel/MarginContainer/TabContainer/Info Tab/MarginContainer/VBoxContainer" unique_id=2039923372]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Info Page[/b]
+
+[b]ALL[/b] app data is stored in \"C:\\Users\\USER\\AppData\\Roaming\\Godot\\One For All\". No data collected through inputs is sold or sent anywhere, all data gathered through this application is and always will be only on your device.
+This program's main and only goal is to make other apps that charge ludicrous amounts of money for something that should be freely and easily accessible.
+
+[color=Red][b][u]Theme Editor[/u][/b][/color]
+This page is designed to enable you to create a personal theme of your own design (barring some limitation for consistency). It is designed to allow you to locally create, edit, and delete a them for the entire app, it is all saved locally as a theme object so you can simply export the themes by finding the file.
+
+[b][u]Cycle Calculator / Tracker[/u][/b]
+This tracker is setup to make a good approximation where you are in your cycle.
+
+[b][u]Device Support[/u][/b]
+Currently only PC devices will be supported for windows and linux because I want to iron out all the issues before changing to android, Apple will never be ported for (they can suck it)."
+fit_content = true
+
+[node name="ThemeEditor" parent="PanelContainer/MarginContainer/Panel/MarginContainer/TabContainer" unique_id=591340044 instance=ExtResource("2_7txu1")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Cycle" type="Control" parent="PanelContainer/MarginContainer/Panel/MarginContainer/TabContainer" unique_id=1218107798]
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/Panel/MarginContainer/TabContainer/Cycle" unique_id=31802106]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/Panel/MarginContainer/TabContainer/Cycle/MarginContainer" unique_id=261315163]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/Panel/MarginContainer/TabContainer/Cycle/MarginContainer/VBoxContainer" unique_id=1634529074]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Panel/MarginContainer/TabContainer/Cycle/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2131112757]
+layout_mode = 2
+text = "Soon to be implemented..."
 
 [node name="Button" type="Button" parent="PanelContainer/MarginContainer/Panel/MarginContainer" unique_id=1275494163]
 layout_mode = 2
@@ -61,39 +126,5 @@ text = "Create Note"
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-
-[node name="PopupPanel" type="PopupPanel" parent="." unique_id=433528580]
-oversampling_override = 1.0
-title = "Create a Note"
-position = Vector2i(292, 250)
-visible = true
-
-[node name="PanelContainer" type="PanelContainer" parent="PopupPanel" unique_id=383111025]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 96.0
-offset_bottom = 96.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="PopupPanel/PanelContainer" unique_id=1240401240]
-layout_mode = 2
-
-[node name="Panel" type="Panel" parent="PopupPanel/PanelContainer/MarginContainer" unique_id=271791282]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PopupPanel/PanelContainer/MarginContainer/Panel" unique_id=114233887]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="LineEdit" type="LineEdit" parent="PopupPanel/PanelContainer/MarginContainer/Panel/VBoxContainer" unique_id=840884126]
-layout_mode = 2
-
-[node name="SpinBox" type="SpinBox" parent="PopupPanel/PanelContainer/MarginContainer/Panel/VBoxContainer" unique_id=799927913]
-layout_mode = 2
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/Panel/MarginContainer/Button" to="." method="_on_button_pressed"]
