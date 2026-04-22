@@ -33,7 +33,7 @@ mouse_filter = 1
 layout_mode = 2
 
 [node name="PanelContainer3" type="PanelContainer" parent="PanelContainer/VBoxContainer" unique_id=1846955719]
-custom_minimum_size = Vector2(0, 120)
+custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 1

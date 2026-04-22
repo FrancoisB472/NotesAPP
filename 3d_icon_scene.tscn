@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://dh8byxiurkrga"]
+
+[ext_resource type="Shader" uid="uid://cq10kqmhtmat4" path="res://NotesAPP/shaders/3d_pixelate.gdshader" id="1_40664"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6k715"]
+shader = ExtResource("1_40664")
+shader_parameter/pixel_count = Vector2(128, 128)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_k5e18"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mt5o8"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_uge2q"]
+sky_material = SubResource("ProceduralSkyMaterial_mt5o8")
+
+[sub_resource type="Environment" id="Environment_tppsy"]
+background_mode = 2
+sky = SubResource("Sky_uge2q")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40664"]
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.51335704, 0.31384665, 0.89986414, 1)
+stencil_flags = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_upg6y"]
+material = SubResource("StandardMaterial3D_40664")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6k715"]
+albedo_color = Color(0.105882354, 0.26666668, 0.15294118, 1)
+stencil_flags = 2
+
+[sub_resource type="PrismMesh" id="PrismMesh_k5e18"]
+material = SubResource("StandardMaterial3D_6k715")
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7libk"]
+transparency = 1
+diffuse_mode = 3
+albedo_color = Color(0, 0, 0, 1)
+metallic_texture_channel = 4
+backlight = Color(1, 0, 0, 1)
+stencil_flags = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_rtam4"]
+material = SubResource("StandardMaterial3D_7libk")
+flip_faces = true
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="Curve" id="Curve_mt5o8"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.36134452, 0.6741574), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uge2q"]
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(1, 0.5254902, 0.078431375, 1)
+metallic_specular = 0.0
+roughness = 0.0
+rim = 0.75
+rim_tint = 1.0
+stencil_flags = 2
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_tppsy"]
+material = SubResource("StandardMaterial3D_uge2q")
+radial_steps = 5
+sections = 2
+curve = SubResource("Curve_mt5o8")
+
+[node name="3D icon Scene" type="Node" unique_id=226891458]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=275561141]
+offset_left = -21.0
+offset_top = -18.0
+offset_right = 730.0
+offset_bottom = 749.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=281926538]
+material = SubResource("ShaderMaterial_6k715")
+position = Vector2(351, 364)
+texture = SubResource("ViewportTexture_k5e18")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=952544182]
+transparent_bg = true
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=1073199175]
+transform = Transform3D(0.70710677, -0.35355338, 0.6123724, 0, 0.8660254, 0.5, -0.70710677, -0.35355338, 0.6123724, 1, 0.8, 1)
+projection = 1
+size = 2.065
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport" unique_id=904584575]
+environment = SubResource("Environment_tppsy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport" unique_id=484551577]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Node3D" type="Node3D" parent="SubViewport" unique_id=1343369468]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D" unique_id=1400666584]
+mesh = SubResource("BoxMesh_upg6y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D/MeshInstance3D" unique_id=1114034607]
+transform = Transform3D(0.872922, -0.48785964, 0, 0.48785964, 0.872922, 0, 0, 0, 1, -0.049148917, 0, 0.5)
+mesh = SubResource("PrismMesh_k5e18")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewport/Node3D" unique_id=156177021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0.5)
+mesh = SubResource("BoxMesh_rtam4")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="SubViewport/Node3D" unique_id=884565965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.503, 0)
+mesh = SubResource("TubeTrailMesh_tppsy")

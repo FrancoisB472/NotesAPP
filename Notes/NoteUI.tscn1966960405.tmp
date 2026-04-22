@@ -85,7 +85,6 @@ wrap_mode = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=714894771]
 layout_mode = 2
-theme_override_constants/separation = 16
 
 [node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=677173281]
 layout_mode = 2
@@ -107,7 +106,7 @@ autostart = true
 
 [node name="PopupPanel" type="PopupPanel" parent="." unique_id=748285865]
 oversampling_override = 1.0
-initial_position = 1
+position = Vector2i(130, 130)
 size = Vector2i(220, 70)
 script = ExtResource("3_cudb6")
 
@@ -142,7 +141,6 @@ text = "YOU FINISHED THIS TASK!!!"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PopupPanel/PanelContainer/MarginContainer/Panel/VBoxContainer" unique_id=96577399]
 layout_mode = 2
-theme_override_constants/separation = 16
 alignment = 1
 
 [node name="OK_Btn" type="Button" parent="PopupPanel/PanelContainer/MarginContainer/Panel/VBoxContainer/HBoxContainer" unique_id=2122080883]
