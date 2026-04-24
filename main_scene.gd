@@ -3,6 +3,7 @@ extends Control
 const NOTE_WINDOW := preload("res://NotesAPP/Notes/NoteUI.tscn")
 
 @onready var fps: Label = $PanelContainer/MarginContainer/FPS
+@onready var cycle: CycleTracker = $PanelContainer/MarginContainer/Panel/MarginContainer/TabContainer/Cycle
 
 var theme_data: GameThemeData
 

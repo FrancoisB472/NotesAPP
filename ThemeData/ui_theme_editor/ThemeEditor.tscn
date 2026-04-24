@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://j72mt26jl63u" path="res://NotesAPP/ThemeData/ui_theme_editor/ThemeEditor.gd" id="1_tijcc"]
 [ext_resource type="Script" uid="uid://duooidismj0sv" path="res://NotesAPP/ThemeData/ui_theme_editor/gallery.gd" id="2_76apn"]
 [ext_resource type="Script" uid="uid://dlgy0741bpm03" path="res://NotesAPP/ThemeData/ui_theme_editor/preview_root.gd" id="3_mdo2x"]
+[ext_resource type="Script" uid="uid://cbygerv0twqdr" path="res://NotesAPP/UtilityNodes/better_button.gd" id="4_bpja1"]
 
 [node name="ThemeEditor" type="Control" unique_id=591340044 node_paths=PackedStringArray("gallery", "bg_picker", "text_picker", "button_picker", "accent_picker", "input_picker", "progress_picker")]
 layout_mode = 3
@@ -31,6 +32,7 @@ mouse_filter = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1150292496]
 layout_mode = 2
+theme_override_constants/separation = 16
 
 [node name="PanelContainer3" type="PanelContainer" parent="PanelContainer/VBoxContainer" unique_id=1846955719]
 custom_minimum_size = Vector2(0, 130)
@@ -76,18 +78,28 @@ layout_mode = 2
 [node name="LeftPanel" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer" unique_id=2094842677]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 16
 
-[node name="Btn__New" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=105877492]
+[node name="Btn__New" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=430952519]
 layout_mode = 2
+size_flags_vertical = 3
 text = "New Theme"
+script = ExtResource("4_bpja1")
+metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
-[node name="Btn_Save" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=2141053268]
+[node name="Btn_Save" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=2038743519]
 layout_mode = 2
+size_flags_vertical = 3
 text = "Save"
+script = ExtResource("4_bpja1")
+metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
-[node name="Btn_Load" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=1734575020]
+[node name="Btn_Load" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=1175038361]
 layout_mode = 2
+size_flags_vertical = 3
 text = "Load"
+script = ExtResource("4_bpja1")
+metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=1973077413]
 layout_mode = 2
@@ -100,6 +112,7 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=1528363912]
 layout_mode = 2
+theme_override_constants/separation = 16
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer" unique_id=1176860350]
 layout_mode = 2
@@ -233,14 +246,17 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 16
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/PreviewRoot/ScrollContainer/VBoxContainer" unique_id=1370736098]
 layout_mode = 2
 text = "This is a label"
 
-[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/PreviewRoot/ScrollContainer/VBoxContainer" unique_id=1524639823]
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/PreviewRoot/ScrollContainer/VBoxContainer" unique_id=832567080]
 layout_mode = 2
 text = "This is a button"
+script = ExtResource("4_bpja1")
+metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
 [node name="OptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/PreviewRoot/ScrollContainer/VBoxContainer" unique_id=1270616361]
 layout_mode = 2
@@ -276,6 +292,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 96.0
 offset_bottom = 96.0
+theme_override_constants/separation = 16
 
 [node name="Label" type="Label" parent="DeletePopup/VBoxContainer" unique_id=1819948179]
 layout_mode = 2
@@ -283,13 +300,17 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="DeletePopup/VBoxContainer" unique_id=988103832]
 layout_mode = 2
 
-[node name="Btn_Yes" type="Button" parent="DeletePopup/VBoxContainer/HBoxContainer" unique_id=1585129497]
+[node name="Btn_Yes" type="Button" parent="DeletePopup/VBoxContainer/HBoxContainer" unique_id=1348636504]
 layout_mode = 2
 text = "Yes"
+script = ExtResource("4_bpja1")
+metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
-[node name="Btn_No" type="Button" parent="DeletePopup/VBoxContainer/HBoxContainer" unique_id=1224612184]
+[node name="Btn_No" type="Button" parent="DeletePopup/VBoxContainer/HBoxContainer" unique_id=165481227]
 layout_mode = 2
 text = "No"
+script = ExtResource("4_bpja1")
+metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
 [node name="FontFileDialog" type="FileDialog" parent="." unique_id=1584153804]
 access = 2

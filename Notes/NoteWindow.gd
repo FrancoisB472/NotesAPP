@@ -12,6 +12,7 @@ extends VirtualWindow
 
 var is_dirty := false
 var theme_cache: Dictionary = {}
+var completed : bool = false
 
 func _ready():
 	super()
@@ -39,8 +40,9 @@ func _ready():
 #  Persistence 
 
 func _process(delta: float) -> void:
-	if progress_bar.value == 100.0:
+	if progress_bar.value == 100.0 and completed == false:
 		popup_panel.visible = true
+		completed = true
 
 func _on_save_timer_timeout():
 	if is_dirty:
@@ -213,10 +215,8 @@ func save_timer_timeout():
 	is_dirty = false
 	_on_save_pressed()
 
-
 func _on_add_prog_btn_pressed() -> void:
 	progress_bar.value += 1
-
 
 func _on_rem_prog_btn_pressed() -> void:
 	progress_bar.value -= 1

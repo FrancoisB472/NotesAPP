@@ -1,0 +1,338 @@
+[gd_scene format=3 uid="uid://cl4w7yiilxg02"]
+
+[ext_resource type="Script" uid="uid://h0woxb7ts875" path="res://NotesAPP/CycleTracking/cycle.gd" id="1_iptiq"]
+[ext_resource type="Script" uid="uid://qj7w13tnqrlp" path="res://NotesAPP/CycleUI.gd" id="2_6d680"]
+[ext_resource type="Script" uid="uid://dfjl2lds61vcv" path="res://NotesAPP/Resources/cycle_data.gd" id="2_ofca3"]
+[ext_resource type="Script" uid="uid://do1lgb61dr1dy" path="res://NotesAPP/addons/graph_2d/graph_2d.gd" id="3_6d680"]
+[ext_resource type="Script" uid="uid://cbygerv0twqdr" path="res://NotesAPP/UtilityNodes/better_button.gd" id="4_gm8np"]
+
+[sub_resource type="Resource" id="Resource_gm8np"]
+script = ExtResource("2_ofca3")
+metadata/_custom_type_script = "uid://dfjl2lds61vcv"
+
+[node name="Cycle" type="Control" unique_id=683803190]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iptiq")
+data = SubResource("Resource_gm8np")
+metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1018021706 node_paths=PackedStringArray("tracker", "cycle_length_lbl", "period_length_lbl", "current_lbl", "flow_lbl", "pain_lbl", "pain_box", "flow_edit", "current_phase_lbl", "day_in_cycle_lbl", "next_phase_lbl", "next_period_lbl")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("2_6d680")
+tracker = NodePath("..")
+cycle_length_lbl = NodePath("VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/CycleLength/ValueLabel")
+period_length_lbl = NodePath("VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/PeriodLength/ValueLabel")
+current_lbl = NodePath("VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/CurrentDay/ValueLabel")
+flow_lbl = NodePath("VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/VBoxContainer2/FlowRow/ValueLabel")
+pain_lbl = NodePath("VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/VBoxContainer2/PainRow/ValueLabel")
+pain_box = NodePath("Popup/MarginContainer/Panel/MarginContainer/VBoxContainer/PainBox")
+flow_edit = NodePath("Popup/MarginContainer/Panel/MarginContainer/VBoxContainer/OptionButton")
+current_phase_lbl = NodePath("VBoxContainer/Panel/MarginContainer/HBoxContainer2/HBoxContainer/VBoxContainer2/CurrentPhase/ValueLabel")
+day_in_cycle_lbl = NodePath("VBoxContainer/Panel/MarginContainer/HBoxContainer2/HBoxContainer/VBoxContainer2/DayInCycle/ValueLabel")
+next_phase_lbl = NodePath("VBoxContainer/Panel/MarginContainer/HBoxContainer2/HBoxContainer/VBoxContainer2/NextPhase/ValueLabel")
+next_period_lbl = NodePath("VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/VBoxContainer2/NextPeriod/ValueLabel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1321723549]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=285283181]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel" unique_id=31861036]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer" unique_id=1280480135]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2" unique_id=1520653878]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer" unique_id=1356079855]
+layout_mode = 2
+
+[node name="CycleLength" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer" unique_id=951003267]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/CycleLength" unique_id=522977316]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Estimated Cycle Length"
+
+[node name="ValueLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/CycleLength" unique_id=970590904]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+
+[node name="PeriodLength" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer" unique_id=1257710443]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/PeriodLength" unique_id=1401753246]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Estimated Period Length"
+
+[node name="ValueLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/PeriodLength" unique_id=1641418554]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+
+[node name="CurrentDay" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer" unique_id=2003815840]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/CurrentDay" unique_id=1243038618]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Current Day"
+
+[node name="ValueLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/CurrentDay" unique_id=736515501]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer" unique_id=401171670]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer" unique_id=965385410]
+layout_mode = 2
+text = "Next Period Info"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer" unique_id=976622862]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="NextPeriod" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/VBoxContainer2" unique_id=316147127]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/VBoxContainer2/NextPeriod" unique_id=902850827]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Next Period"
+
+[node name="ValueLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/VBoxContainer2/NextPeriod" unique_id=99933626]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+
+[node name="FlowRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/VBoxContainer2" unique_id=351142511]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/VBoxContainer2/FlowRow" unique_id=773247740]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Flow Level"
+
+[node name="ValueLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/VBoxContainer2/FlowRow" unique_id=731931285]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+
+[node name="PainRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/VBoxContainer2" unique_id=21481871]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/VBoxContainer2/PainRow" unique_id=1050400297]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pain Level"
+
+[node name="ValueLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/VBoxContainer2/PainRow" unique_id=277228551]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+
+[node name="ButtonRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer" unique_id=1656522272]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="StartPeriod" type="Button" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/ButtonRow" unique_id=442457168]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Start Period"
+script = ExtResource("4_gm8np")
+metadata/_custom_type_script = "uid://cbygerv0twqdr"
+
+[node name="EndPeriod" type="Button" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/ButtonRow" unique_id=1748282804]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "End Period"
+script = ExtResource("4_gm8np")
+metadata/_custom_type_script = "uid://cbygerv0twqdr"
+
+[node name="ResetData" type="Button" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/ButtonRow" unique_id=220759580]
+layout_mode = 2
+text = "Reset"
+script = ExtResource("4_gm8np")
+metadata/_custom_type_script = "uid://cbygerv0twqdr"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2" unique_id=599375264]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2" unique_id=396004531]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/HBoxContainer" unique_id=1453574409]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="CurrentPhase" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/HBoxContainer/VBoxContainer2" unique_id=159312999]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/HBoxContainer/VBoxContainer2/CurrentPhase" unique_id=1460980046]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Current Phase"
+
+[node name="ValueLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/HBoxContainer/VBoxContainer2/CurrentPhase" unique_id=1222890185]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+
+[node name="DayInCycle" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/HBoxContainer/VBoxContainer2" unique_id=1697777813]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/HBoxContainer/VBoxContainer2/DayInCycle" unique_id=140630976]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Day in Cycle"
+
+[node name="ValueLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/HBoxContainer/VBoxContainer2/DayInCycle" unique_id=1735593281]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+
+[node name="NextPhase" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/HBoxContainer/VBoxContainer2" unique_id=1884244720]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/HBoxContainer/VBoxContainer2/NextPhase" unique_id=1841127540]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Next Phase"
+
+[node name="ValueLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/HBoxContainer/VBoxContainer2/NextPhase" unique_id=1081841277]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=450407336]
+custom_minimum_size = Vector2(0, 380)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PainGraph" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1458939752]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_6d680")
+x_label = "Time"
+y_label = "Pain"
+background_color = Color(0.06053035, 0.06053035, 0.060530342, 1)
+grid_vertical_visible = true
+metadata/_custom_type_script = "uid://do1lgb61dr1dy"
+
+[node name="FlowGraph" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=824755830]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_6d680")
+x_label = "Time"
+y_label = "Flow"
+background_color = Color(0.06053035, 0.06053035, 0.060530342, 1)
+grid_vertical_visible = true
+metadata/_custom_type_script = "uid://do1lgb61dr1dy"
+
+[node name="Popup" type="PanelContainer" parent="MarginContainer" unique_id=1067506083]
+visible = false
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Popup" unique_id=1130902929]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Panel" type="Panel" parent="MarginContainer/Popup/MarginContainer" unique_id=729217999]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Popup/MarginContainer/Panel" unique_id=948120956]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Popup/MarginContainer/Panel/MarginContainer" unique_id=804085816]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="MarginContainer/Popup/MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=2116919489]
+layout_mode = 2
+text = "Set Period Data"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Popup/MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=612440650]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Button" type="Button" parent="MarginContainer/Popup/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1585912281]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "OK"
+
+[node name="Button2" type="Button" parent="MarginContainer/Popup/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=359187232]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+
+[node name="PainBox" type="SpinBox" parent="MarginContainer/Popup/MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1617909837]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/Popup/MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=554087614]
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "Light"
+popup/item_0/id = 0
+popup/item_1/text = "Medium"
+popup/item_1/id = 1
+popup/item_2/text = "Heavy"
+popup/item_2/id = 2
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/ButtonRow/StartPeriod" to="MarginContainer" method="_on_start_period_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/ButtonRow/EndPeriod" to="MarginContainer" method="_on_end_period_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/ButtonRow/ResetData" to="MarginContainer" method="_on_reset_data_pressed"]
+[connection signal="pressed" from="MarginContainer/Popup/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Button" to="MarginContainer" method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Popup/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Button2" to="MarginContainer" method="_on_button_2_pressed"]

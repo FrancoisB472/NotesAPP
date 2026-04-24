@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dlju8da0p0mla"]
 
 [ext_resource type="Script" uid="uid://dwu4mpc521dkw" path="res://NotesAPP/ThemeData/ui_theme_editor/theme_item.gd" id="1_ucijw"]
+[ext_resource type="Script" uid="uid://cbygerv0twqdr" path="res://NotesAPP/UtilityNodes/better_button.gd" id="2_ti27b"]
 
 [node name="ThemeItem" type="Control" unique_id=1318095940]
 custom_minimum_size = Vector2(112, 112)
@@ -28,7 +29,7 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "This is a Theme Item"
 
-[node name="Btn_Select" type="Button" parent="." unique_id=2106254436]
+[node name="Btn_Select" type="Button" parent="." unique_id=1497405856]
 modulate = Color(1, 1, 1, 0.15686275)
 layout_mode = 1
 anchors_preset = 15
@@ -36,16 +37,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_ti27b")
+metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
-[node name="Btn_Delete" type="Button" parent="." unique_id=1168149478]
+[node name="Btn_Delete" type="Button" parent="." unique_id=1725692761]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -8.0
-offset_bottom = 8.0
+offset_left = -18.0
+offset_bottom = 31.0
 grow_horizontal = 0
 text = "X"
+script = ExtResource("2_ti27b")
+metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
 [connection signal="pressed" from="Btn_Select" to="." method="_on_btn_select_pressed"]
 [connection signal="pressed" from="Btn_Delete" to="." method="_on_delete_pressed"]
