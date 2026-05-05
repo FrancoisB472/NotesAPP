@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="NoteTheme" format=3 uid="uid://dywxpa4m5ybbc"]
 
-[ext_resource type="Script" uid="uid://uecqp28i4u1j" path="res://NotesAPP/Notes/NoteTheme.gd" id="1_0mqap"]
+[ext_resource type="Script" uid="uid://58tyg44f6y74" path="res://NotesAPP/Notes/NoteTheme.gd" id="1_0mqap"]
 
 [resource]
 script = ExtResource("1_0mqap")

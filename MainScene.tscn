@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://db24ovwkgnlwm"]
 
-[ext_resource type="Script" uid="uid://cmfe88fx7o4ng" path="res://NotesAPP/main_scene.gd" id="1_7txu1"]
+[ext_resource type="Script" uid="uid://dojqu2pfljxl1" path="res://NotesAPP/main_scene.gd" id="1_7txu1"]
 [ext_resource type="PackedScene" uid="uid://c4ewrkkk5bvek" path="res://NotesAPP/ThemeData/ui_theme_editor/ThemeEditor.tscn" id="2_7txu1"]
 [ext_resource type="PackedScene" uid="uid://cl4w7yiilxg02" path="res://NotesAPP/CycleTracking/cycle.tscn" id="3_gcq4y"]
-[ext_resource type="Script" uid="uid://cbygerv0twqdr" path="res://NotesAPP/UtilityNodes/better_button.gd" id="4_nwb8l"]
+[ext_resource type="Script" uid="uid://d0fwfduwmrih0" path="res://NotesAPP/UtilityNodes/better_button.gd" id="4_nwb8l"]
 
 [node name="ToolWindow" type="Control" unique_id=787210304]
 layout_mode = 3
@@ -102,7 +102,6 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 text = "Create Note"
 script = ExtResource("4_nwb8l")
-metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
 [node name="FPS" type="Label" parent="PanelContainer/MarginContainer" unique_id=406338276]
 layout_mode = 2

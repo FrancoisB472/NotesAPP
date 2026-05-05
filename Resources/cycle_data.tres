@@ -1,6 +1,6 @@
-[gd_resource type="Resource" format=3 uid="uid://cfn06oa2orlvd"]
+[gd_resource type="Resource" script_class="CycleData" format=3 uid="uid://cfn06oa2orlvd"]
 
-[ext_resource type="Script" uid="uid://dfjl2lds61vcv" path="res://NotesAPP/Resources/cycle_data.gd" id="1_c56hy"]
+[ext_resource type="Script" uid="uid://b0e1x63cj7xo2" path="res://NotesAPP/Resources/cycle_data.gd" id="1_c56hy"]
 
 [resource]
 script = ExtResource("1_c56hy")

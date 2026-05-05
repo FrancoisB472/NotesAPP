@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c4ewrkkk5bvek"]
 
-[ext_resource type="Script" uid="uid://j72mt26jl63u" path="res://NotesAPP/ThemeData/ui_theme_editor/ThemeEditor.gd" id="1_tijcc"]
-[ext_resource type="Script" uid="uid://duooidismj0sv" path="res://NotesAPP/ThemeData/ui_theme_editor/gallery.gd" id="2_76apn"]
-[ext_resource type="Script" uid="uid://dlgy0741bpm03" path="res://NotesAPP/ThemeData/ui_theme_editor/preview_root.gd" id="3_mdo2x"]
-[ext_resource type="Script" uid="uid://cbygerv0twqdr" path="res://NotesAPP/UtilityNodes/better_button.gd" id="4_bpja1"]
+[ext_resource type="Script" uid="uid://d2givhvyykx8s" path="res://NotesAPP/ThemeData/ui_theme_editor/ThemeEditor.gd" id="1_tijcc"]
+[ext_resource type="Script" uid="uid://c13fy230l4wqi" path="res://NotesAPP/ThemeData/ui_theme_editor/gallery.gd" id="2_76apn"]
+[ext_resource type="Script" uid="uid://dke2yk5uema71" path="res://NotesAPP/ThemeData/ui_theme_editor/preview_root.gd" id="3_mdo2x"]
+[ext_resource type="Script" uid="uid://d0fwfduwmrih0" path="res://NotesAPP/UtilityNodes/better_button.gd" id="4_bpja1"]
 
 [node name="ThemeEditor" type="Control" unique_id=591340044 node_paths=PackedStringArray("gallery", "bg_picker", "text_picker", "button_picker", "accent_picker", "input_picker", "progress_picker")]
 layout_mode = 3
@@ -85,21 +85,18 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "New Theme"
 script = ExtResource("4_bpja1")
-metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
 [node name="Btn_Save" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=2038743519]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Save"
 script = ExtResource("4_bpja1")
-metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
 [node name="Btn_Load" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=1175038361]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Load"
 script = ExtResource("4_bpja1")
-metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=1973077413]
 layout_mode = 2
@@ -256,7 +253,6 @@ text = "This is a label"
 layout_mode = 2
 text = "This is a button"
 script = ExtResource("4_bpja1")
-metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
 [node name="OptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/PreviewRoot/ScrollContainer/VBoxContainer" unique_id=1270616361]
 layout_mode = 2
@@ -304,13 +300,11 @@ layout_mode = 2
 layout_mode = 2
 text = "Yes"
 script = ExtResource("4_bpja1")
-metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
 [node name="Btn_No" type="Button" parent="DeletePopup/VBoxContainer/HBoxContainer" unique_id=165481227]
 layout_mode = 2
 text = "No"
 script = ExtResource("4_bpja1")
-metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
 [node name="FontFileDialog" type="FileDialog" parent="." unique_id=1584153804]
 access = 2

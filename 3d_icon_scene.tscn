@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dh8byxiurkrga"]
 
-[ext_resource type="Shader" uid="uid://cq10kqmhtmat4" path="res://NotesAPP/shaders/3d_pixelate.gdshader" id="1_40664"]
+[ext_resource type="Shader" uid="uid://dl0jc73mf41ip" path="res://NotesAPP/shaders/3d_pixelate.gdshader" id="1_40664"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6k715"]
 shader = ExtResource("1_40664")

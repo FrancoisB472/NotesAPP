@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://boc53r8m20bv"]
 
-[ext_resource type="Script" path="res://NotesAPP/Notes/NoteWindow.gd" id="1_sjiqr"]
-[ext_resource type="Script" path="res://NotesAPP/Resources/Note.gd" id="2_bjgnl"]
-[ext_resource type="Script" path="res://NotesAPP/UtilityNodes/better_button.gd" id="3_7c3lg"]
-[ext_resource type="Script" path="res://NotesAPP/Notes/popup_panel.gd" id="3_cudb6"]
+[ext_resource type="Script" uid="uid://cy7ae8gepngte" path="res://NotesAPP/Notes/NoteWindow.gd" id="1_sjiqr"]
+[ext_resource type="Script" uid="uid://cmhph0w08g1wc" path="res://NotesAPP/Resources/Note.gd" id="2_bjgnl"]
+[ext_resource type="Script" uid="uid://d0fwfduwmrih0" path="res://NotesAPP/UtilityNodes/better_button.gd" id="3_7c3lg"]
+[ext_resource type="Script" uid="uid://3atprrqvw0uj" path="res://NotesAPP/Notes/popup_panel.gd" id="3_cudb6"]
 [ext_resource type="Script" uid="uid://bueiiy0xdcx83" path="res://addons/spellcheck/spellcheck_text_edit.gd" id="5_iyjfw"]
 
 [sub_resource type="Resource" id="Resource_bjgnl"]
@@ -74,13 +74,11 @@ color = Color(0.4511996, 0.20112965, 0.3862613, 1)
 layout_mode = 2
 text = "SAVE ICON"
 script = ExtResource("3_7c3lg")
-metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
 [node name="Delete" type="Button" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=641850990]
 layout_mode = 2
 text = "DELETE"
 script = ExtResource("3_7c3lg")
-metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
 [node name="ThemeOptions" type="OptionButton" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=190420770]
 layout_mode = 2
@@ -119,14 +117,12 @@ custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 text = "+"
 script = ExtResource("3_7c3lg")
-metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
 [node name="Rem_Prog_Btn" type="Button" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=496457348]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 text = "-"
 script = ExtResource("3_7c3lg")
-metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
 [node name="SaveTimer" type="Timer" parent="." unique_id=300706958]
 wait_time = 10.0
@@ -178,14 +174,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "YAY!"
 script = ExtResource("3_7c3lg")
-metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
 [node name="Cancel_Btn" type="Button" parent="PopupPanel/PanelContainer/MarginContainer/Panel/VBoxContainer/HBoxContainer" unique_id=1226957253]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Close"
 script = ExtResource("3_7c3lg")
-metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
 [connection signal="color_changed" from="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/Save" to="." method="_on_save_pressed"]

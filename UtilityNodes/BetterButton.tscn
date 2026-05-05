@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://tjfp15f7tods"]
 
-[ext_resource type="Script" uid="uid://cbygerv0twqdr" path="res://NotesAPP/UtilityNodes/better_button.gd" id="1_hc747"]
+[ext_resource type="Script" uid="uid://d0fwfduwmrih0" path="res://NotesAPP/UtilityNodes/better_button.gd" id="1_hc747"]
 
 [node name="BetterButton" type="Button" unique_id=897046225]
 text = "Test"
