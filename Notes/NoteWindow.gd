@@ -1,12 +1,13 @@
 extends VirtualWindow
 
 # Paths match NoteUI.tscn exactly.
-@onready var theme_options: OptionButton = $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ThemeOptions
+@onready var theme_options: OptionButton = $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/ThemeOptions
 @onready var save_timer: Timer = $SaveTimer
 @onready var title_label: LineEdit = $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Title_Lbl
 @onready var desc: TextEdit = $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/RichTextLabel
 @onready var progress_bar: ProgressBar = $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/ProgressBar
 @onready var popup_panel: PopupPanel = $PopupPanel
+@onready var font_spin_box: SpinBox = $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer/SpinBox
 
 @export var note: Note
 
@@ -39,7 +40,7 @@ func _ready():
 
 #  Persistence 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if progress_bar.value == 100.0 and completed == false:
 		popup_panel.visible = true
 		completed = true
@@ -135,6 +136,9 @@ func build_godot_theme(t: NoteTheme) -> Theme:
 	var pb_fill = StyleBoxFlat.new(); pb_fill.bg_color = t.progress_fill_color
 	themea.set_stylebox("background", "ProgressBar", pb_bg)
 	themea.set_stylebox("fill", "ProgressBar", pb_fill)
+	
+	themea.set_font_size("font_size", "Label", font_spin_box.value)
+	
 	return themea
 
 func save_theme(t: NoteTheme, id: String) -> String:
@@ -216,7 +220,11 @@ func save_timer_timeout():
 	_on_save_pressed()
 
 func _on_add_prog_btn_pressed() -> void:
-	progress_bar.value += 1
+	progress_bar.value += 10
 
 func _on_rem_prog_btn_pressed() -> void:
-	progress_bar.value -= 1
+	progress_bar.value -= 10
+
+func _on_spin_box_value_changed(value: float) -> void:
+	var toolWindow : MainWindow = get_tree().root.get_node("/root/ToolWindow")
+	toolWindow.theme_editor.font_size_box.value = value

@@ -35,7 +35,7 @@ static func build(d: GameThemeData) -> Theme:
 
 	d.id = str(Time.get_unix_time_from_system())
 
-	var container_style = tex if d.container_texture else base
+	var _container_style = tex if d.container_texture else base
 
 	var normal_container_classes = [
 		"Panel",

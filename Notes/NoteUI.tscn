@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://boc53r8m20bv"]
 
-[ext_resource type="Script" uid="uid://4tmel6ew413l" path="res://NotesAPP/Notes/NoteWindow.gd" id="1_sjiqr"]
-[ext_resource type="Script" uid="uid://blc52sex6ttgv" path="res://NotesAPP/Resources/Note.gd" id="2_bjgnl"]
-[ext_resource type="Script" uid="uid://cbygerv0twqdr" path="res://NotesAPP/UtilityNodes/better_button.gd" id="3_7c3lg"]
-[ext_resource type="Script" uid="uid://c8idnrou6oj56" path="res://NotesAPP/Notes/popup_panel.gd" id="3_cudb6"]
+[ext_resource type="Script" path="res://NotesAPP/Notes/NoteWindow.gd" id="1_sjiqr"]
+[ext_resource type="Script" path="res://NotesAPP/Resources/Note.gd" id="2_bjgnl"]
+[ext_resource type="Script" path="res://NotesAPP/UtilityNodes/better_button.gd" id="3_7c3lg"]
+[ext_resource type="Script" path="res://NotesAPP/Notes/popup_panel.gd" id="3_cudb6"]
+[ext_resource type="Script" uid="uid://bueiiy0xdcx83" path="res://addons/spellcheck/spellcheck_text_edit.gd" id="5_iyjfw"]
 
 [sub_resource type="Resource" id="Resource_bjgnl"]
 script = ExtResource("2_bjgnl")
@@ -12,15 +13,16 @@ metadata/_custom_type_script = "uid://blc52sex6ttgv"
 [node name="Control" type="Window" unique_id=711739072]
 oversampling_override = 1.0
 position = Vector2i(0, 36)
-size = Vector2i(500, 330)
+size = Vector2i(500, 374)
 script = ExtResource("1_sjiqr")
 note = SubResource("Resource_bjgnl")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=34004590]
-custom_minimum_size = Vector2(300, 300)
+custom_minimum_size = Vector2(150, 150)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -50,9 +52,8 @@ theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/Panel/MarginContainer" unique_id=345330841]
 layout_mode = 2
-theme_override_constants/separation = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=146669472]
+[node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=347593741]
 layout_mode = 2
 theme_override_constants/separation = 16
 
@@ -61,34 +62,49 @@ layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Title"
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2045779237]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1138549219]
+layout_mode = 2
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=2045779237]
 layout_mode = 2
 text = "Colour"
 color = Color(0.4511996, 0.20112965, 0.3862613, 1)
 
-[node name="Save" type="Button" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=741723870]
+[node name="Save" type="Button" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=741723870]
 layout_mode = 2
 text = "SAVE ICON"
 script = ExtResource("3_7c3lg")
 metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
-[node name="Delete" type="Button" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=641850990]
+[node name="Delete" type="Button" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=641850990]
 layout_mode = 2
 text = "DELETE"
 script = ExtResource("3_7c3lg")
 metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
-[node name="ThemeOptions" type="OptionButton" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=190420770]
+[node name="ThemeOptions" type="OptionButton" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=190420770]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=901516565]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer" unique_id=1886735368]
+layout_mode = 2
+text = "Font Size"
+
+[node name="SpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer" unique_id=653649615]
 layout_mode = 2
 
 [node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1802589064]
 layout_mode = 2
 
-[node name="RichTextLabel" type="TextEdit" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1567906091]
-custom_minimum_size = Vector2(0, 224)
+[node name="SpellcheckTextEdit" type="TextEdit" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=2056703142]
 layout_mode = 2
-placeholder_text = "Write something..."
-wrap_mode = 1
+size_flags_vertical = 3
+placeholder_text = "Write something here"
+script = ExtResource("5_iyjfw")
+metadata/_custom_type_script = "uid://bueiiy0xdcx83"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=714894771]
 layout_mode = 2
@@ -171,10 +187,11 @@ text = "Close"
 script = ExtResource("3_7c3lg")
 metadata/_custom_type_script = "uid://cbygerv0twqdr"
 
-[connection signal="color_changed" from="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Save" to="." method="_on_save_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Delete" to="." method="_on_delete_pressed"]
-[connection signal="item_selected" from="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ThemeOptions" to="." method="_on_theme_options_item_selected"]
+[connection signal="color_changed" from="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/Delete" to="." method="_on_delete_pressed"]
+[connection signal="item_selected" from="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/ThemeOptions" to="." method="_on_theme_options_item_selected"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer/SpinBox" to="." method="_on_spin_box_value_changed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Add_Prog_Btn" to="." method="_on_add_prog_btn_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Rem_Prog_Btn" to="." method="_on_rem_prog_btn_pressed"]
 [connection signal="timeout" from="SaveTimer" to="." method="save_timer_timeout"]

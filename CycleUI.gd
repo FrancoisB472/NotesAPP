@@ -28,7 +28,7 @@ func _ready() -> void:
 	call_deferred("populate_graph")
 	set_label_values()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	set_label_values()
 
 func set_label_values():
@@ -40,7 +40,7 @@ func set_label_values():
 
 	current_lbl.text = str(tracker.data.current_day)
 	
-	var pred = tracker.get_prediction()
+	var _pred = tracker.get_prediction()
 	
 	var sym = tracker.get_symptom_prediction()
 	flow_lbl.text = sym["flow"]

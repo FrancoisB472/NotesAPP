@@ -1,4 +1,5 @@
 extends Control
+class_name ThemeEditor
 
 @onready var preview_root = $PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/PreviewRoot
 @onready var texture_drop = $PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/TextureDrop
@@ -14,7 +15,6 @@ extends Control
 
 @onready var delete_popup: PopupPanel = $DeletePopup
 @onready var delete_label: Label = $DeletePopup/VBoxContainer/Label
-
 
 @onready var font_file_dialog: FileDialog = $FontFileDialog
 
@@ -68,10 +68,10 @@ func _on_progress_changed(c): theme_data.progress_fill = c; _apply()
 func _on_font_size_changed(value: float): theme_data.font_size = int(value); _apply()
 
 ## Drag & Drop the texture
-func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	return typeof(data) == TYPE_DICTIONARY and data.has("files")
 
-func _drop_data(at_position: Vector2, data: Variant) -> void:
+func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	for f in data["files"]:
 		if f.ends_with(".png"):
 			var img = Image.load_from_file(f)
@@ -84,7 +84,6 @@ func load_into_editor(index: int):
 	theme_data = ThemeLibrary.themes[index]
 
 	font_size_box.value = theme_data.font_size
-
 	_apply()
 
 func _on_delete_requested(index: int):

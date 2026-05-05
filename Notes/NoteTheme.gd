@@ -13,3 +13,4 @@ class_name NoteTheme
 @export var button_hover_color: Color
 
 @export var input_color: Color
+@export var font_size : int

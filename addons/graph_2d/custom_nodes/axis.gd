@@ -38,7 +38,7 @@ func _draw() -> void:
 	if vert_grad.is_empty() or hor_grad.is_empty(): return
 	
 	var topleft: Vector2 = vert_grad.front()[POINT]
-	var topright: Vector2 = Vector2(hor_grad.back()[POINT].x, vert_grad.front()[POINT].y)
+	var _topright: Vector2 = Vector2(hor_grad.back()[POINT].x, vert_grad.front()[POINT].y)
 	var bottomright: Vector2 = hor_grad.back()[POINT]
 	
 	if show_x_ticks:
