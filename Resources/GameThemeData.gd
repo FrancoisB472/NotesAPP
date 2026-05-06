@@ -20,6 +20,9 @@ class_name GameThemeData
 @export var button_bg : Color = Color(0.2,0.2,0.2)
 @export var button_hover : Color = Color(0.3,0.3,0.3)
 @export var button_pressed : Color = Color(0.1,0.1,0.1)
+@export var button_texture_normal: Texture2D
+@export var button_texture_hover: Texture2D
+@export var button_texture_pressed: Texture2D
 
 @export_group("Inputs")
 @export var input_bg : Color = Color(0.18,0.18,0.18)

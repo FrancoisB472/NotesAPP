@@ -2,8 +2,14 @@
 
 [ext_resource type="Script" uid="uid://d2givhvyykx8s" path="res://NotesAPP/ThemeData/ui_theme_editor/ThemeEditor.gd" id="1_tijcc"]
 [ext_resource type="Script" uid="uid://c13fy230l4wqi" path="res://NotesAPP/ThemeData/ui_theme_editor/gallery.gd" id="2_76apn"]
+[ext_resource type="Texture2D" uid="uid://da87fu0p3g0ap" path="res://NotesAPP/ThemeData/PNG/Add.png" id="3_gy3ku"]
 [ext_resource type="Script" uid="uid://dke2yk5uema71" path="res://NotesAPP/ThemeData/ui_theme_editor/preview_root.gd" id="3_mdo2x"]
 [ext_resource type="Script" uid="uid://d0fwfduwmrih0" path="res://NotesAPP/UtilityNodes/better_button.gd" id="4_bpja1"]
+[ext_resource type="Texture2D" uid="uid://3swit4lbtafa" path="res://NotesAPP/ThemeData/PNG/Save.png" id="5_7pfc2"]
+[ext_resource type="Texture2D" uid="uid://bq28u0rtryw0h" path="res://NotesAPP/ThemeData/PNG/Up.png" id="6_suakl"]
+[ext_resource type="Texture2D" uid="uid://ywwen68t6ba3" path="res://NotesAPP/ThemeData/PNG/Down.png" id="7_b1oqi"]
+[ext_resource type="Texture2D" uid="uid://dfiu25o3pj3of" path="res://NotesAPP/ThemeData/PNG/Remove.png" id="9_7pfc2"]
+[ext_resource type="Script" uid="uid://dapmbv18fdpl0" path="res://NotesAPP/UtilityNodes/better_progress_bar.gd" id="9_suakl"]
 
 [node name="ThemeEditor" type="Control" unique_id=591340044 node_paths=PackedStringArray("gallery", "bg_picker", "text_picker", "button_picker", "accent_picker", "input_picker", "progress_picker")]
 layout_mode = 3
@@ -84,12 +90,14 @@ theme_override_constants/separation = 16
 layout_mode = 2
 size_flags_vertical = 3
 text = "New Theme"
+icon = ExtResource("3_gy3ku")
 script = ExtResource("4_bpja1")
 
 [node name="Btn_Save" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=2038743519]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 6
 text = "Save"
+icon = ExtResource("5_7pfc2")
 script = ExtResource("4_bpja1")
 
 [node name="Btn_Load" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=1175038361]
@@ -106,6 +114,39 @@ text = "Texture Box"
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
+
+[node name="BtnTextures" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=1631040573]
+layout_mode = 2
+text = "Button Textures"
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=841249870]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/PanelContainer" unique_id=2014285675]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/PanelContainer/MarginContainer" unique_id=1747628572]
+layout_mode = 2
+
+[node name="NormalBtn" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/PanelContainer/MarginContainer/HBoxContainer" unique_id=346942879]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Normal"
+
+[node name="HoverBtn" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/PanelContainer/MarginContainer/HBoxContainer" unique_id=1135566471]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hover"
+
+[node name="PressedBtn" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/PanelContainer/MarginContainer/HBoxContainer" unique_id=1335186009]
+layout_mode = 2
+size_flags_horizontal = 3
+keep_pressed_outside = true
+text = "Pressed"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=1528363912]
 layout_mode = 2
@@ -206,6 +247,14 @@ text = "Font Size"
 [node name="SpinBox" type="SpinBox" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer7" unique_id=1746465088]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_icons/up = ExtResource("6_suakl")
+theme_override_icons/up_hover = ExtResource("6_suakl")
+theme_override_icons/up_pressed = ExtResource("6_suakl")
+theme_override_icons/up_disabled = ExtResource("6_suakl")
+theme_override_icons/down = ExtResource("7_b1oqi")
+theme_override_icons/down_hover = ExtResource("7_b1oqi")
+theme_override_icons/down_pressed = ExtResource("7_b1oqi")
+theme_override_icons/down_disabled = ExtResource("7_b1oqi")
 
 [node name="HBoxContainer8" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer" unique_id=201717219]
 layout_mode = 2
@@ -250,12 +299,14 @@ layout_mode = 2
 text = "This is a label"
 
 [node name="Button" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/PreviewRoot/ScrollContainer/VBoxContainer" unique_id=832567080]
+texture_filter = 1
 layout_mode = 2
 text = "This is a button"
 script = ExtResource("4_bpja1")
 
 [node name="OptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/PreviewRoot/ScrollContainer/VBoxContainer" unique_id=1270616361]
 layout_mode = 2
+theme_override_icons/arrow = ExtResource("7_b1oqi")
 selected = 0
 item_count = 3
 popup/item_0/text = "This is a item"
@@ -271,6 +322,7 @@ placeholder_text = "This is a Line Edit"
 
 [node name="ProgressBar" type="ProgressBar" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/PreviewRoot/ScrollContainer/VBoxContainer" unique_id=550991471]
 layout_mode = 2
+script = ExtResource("9_suakl")
 
 [node name="Panel" type="Panel" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/PreviewRoot" unique_id=1839608339]
 modulate = Color(0, 0, 0, 0.14901961)
@@ -286,7 +338,7 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="DeletePopup" unique_id=603123676]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 96.0
+offset_right = 114.0
 offset_bottom = 96.0
 theme_override_constants/separation = 16
 
@@ -299,21 +351,33 @@ layout_mode = 2
 [node name="Btn_Yes" type="Button" parent="DeletePopup/VBoxContainer/HBoxContainer" unique_id=1348636504]
 layout_mode = 2
 text = "Yes"
+icon = ExtResource("3_gy3ku")
 script = ExtResource("4_bpja1")
 
 [node name="Btn_No" type="Button" parent="DeletePopup/VBoxContainer/HBoxContainer" unique_id=165481227]
 layout_mode = 2
 text = "No"
+icon = ExtResource("9_7pfc2")
 script = ExtResource("4_bpja1")
 
 [node name="FontFileDialog" type="FileDialog" parent="." unique_id=1584153804]
 access = 2
 use_native_dialog = true
 
+[node name="TextureFileDialog" type="FileDialog" parent="." unique_id=993856869]
+title = "Open a File"
+file_mode = 0
+access = 2
+use_native_dialog = true
+
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/Btn__New" to="." method="_on_new_theme_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/Btn_Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/Btn_Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/PanelContainer/MarginContainer/HBoxContainer/NormalBtn" to="." method="_on_button_normal_select_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/PanelContainer/MarginContainer/HBoxContainer/HoverBtn" to="." method="_on_button_hover_select_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/PanelContainer/MarginContainer/HBoxContainer/PressedBtn" to="." method="_on_button_pressed_select_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/VBoxContainer/HBoxContainer8/FontFileButton" to="." method="_on_font_file_button_pressed"]
 [connection signal="pressed" from="DeletePopup/VBoxContainer/HBoxContainer/Btn_Yes" to="." method="_on_btn_yes_pressed"]
 [connection signal="pressed" from="DeletePopup/VBoxContainer/HBoxContainer/Btn_No" to="." method="_on_btn_no_pressed"]
 [connection signal="file_selected" from="FontFileDialog" to="." method="_on_font_file_dialog_file_selected"]
+[connection signal="file_selected" from="TextureFileDialog" to="." method="_on_texture_file_selected"]

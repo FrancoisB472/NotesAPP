@@ -23,6 +23,18 @@ var theme_data: GameThemeData
 var editing_index := -1
 var pending_delete_index := -1
 
+@onready var texture_file_dialog: FileDialog = $TextureFileDialog
+var pending_button_target := ""
+
+enum DropTarget {
+	CONTAINER,
+	BUTTON_NORMAL,
+	BUTTON_HOVER,
+	BUTTON_PRESSED
+}
+
+var current_drop_target := DropTarget.CONTAINER
+
 func _ready() -> void:
 	_connect_signals()
 
@@ -44,7 +56,6 @@ func _ready() -> void:
 	theme_data = ThemeLibrary.get_current()
 	_apply()
 
-
 ## Signals
 func _connect_signals():
 	bg_picker.color_changed.connect(_on_bg_changed)
@@ -57,6 +68,8 @@ func _connect_signals():
 
 ## Update Live
 func _apply():
+	get_tree().root.theme = null
+	await get_tree().process_frame
 	ThemeManager.apply(theme_data)
 
 func _on_bg_changed(c): theme_data.container_bg = c; _apply()
@@ -67,17 +80,69 @@ func _on_input_changed(c): theme_data.input_bg = c; _apply()
 func _on_progress_changed(c): theme_data.progress_fill = c; _apply()
 func _on_font_size_changed(value: float): theme_data.font_size = int(value); _apply()
 
-## Drag & Drop the texture
-func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
-	return typeof(data) == TYPE_DICTIONARY and data.has("files")
+func _on_button_normal_select_pressed():
+	pending_button_target = "normal"
+	_open_texture_dialog()
 
-func _drop_data(_at_position: Vector2, data: Variant) -> void:
+func _on_button_hover_select_pressed():
+	pending_button_target = "hover"
+	_open_texture_dialog()
+
+func _on_button_pressed_select_pressed():
+	pending_button_target = "pressed"
+	_open_texture_dialog()
+
+func _open_texture_dialog():
+	texture_file_dialog.filters = PackedStringArray(["*.png ; PNG Images"])
+	texture_file_dialog.popup_centered_ratio()
+
+func handle_button_texture_drop(data: Dictionary):
+	print(current_drop_target)
+	print(theme_data.button_texture_normal)
 	for f in data["files"]:
 		if f.ends_with(".png"):
 			var img = Image.load_from_file(f)
 			var tex = ImageTexture.create_from_image(img)
+
+			match current_drop_target:
+				DropTarget.BUTTON_NORMAL:
+					theme_data.button_texture_normal = tex
+
+				DropTarget.BUTTON_HOVER:
+					theme_data.button_texture_hover = tex
+
+				DropTarget.BUTTON_PRESSED:
+					theme_data.button_texture_pressed = tex
+
+				_:
+					return # ignore if not a button mode
+
+			_apply()
+
+			ThemeLibrary.themes[editing_index] = theme_data
+			ThemeLibrary.save_all()
+
+## Drag & Drop the texture
+func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
+	return typeof(data) == TYPE_DICTIONARY and data.has("files")
+
+func _drop_data(pos: Vector2, data: Variant) -> void:
+	if typeof(data) != TYPE_DICTIONARY or not data.has("files"):
+		return
+
+	var hovered = get_viewport().gui_get_hovered_control()
+
+	# fallback → container drop
+	for f in data["files"]:
+		if f.ends_with(".png"):
+			var img = Image.load_from_file(f)
+			var tex = ImageTexture.create_from_image(img)
+
 			theme_data.container_texture = tex
 			_apply()
+
+			ThemeLibrary.themes[editing_index] = theme_data
+			ThemeLibrary.save_all()
 
 func load_into_editor(index: int):
 	editing_index = index
@@ -153,3 +218,26 @@ func _on_font_file_dialog_file_selected(path: String) -> void:
 
 	theme_data.font_path = path
 	_apply()
+
+func _on_texture_file_selected(path: String) -> void:
+	if theme_data == null:
+		return
+
+	var img := Image.load_from_file(path)
+	if img == null:
+		return
+
+	var tex := ImageTexture.create_from_image(img)
+
+	match pending_button_target:
+		"normal":
+			theme_data.button_texture_normal = tex
+		"hover":
+			theme_data.button_texture_hover = tex
+		"pressed":
+			theme_data.button_texture_pressed = tex
+
+	_apply()
+
+	ThemeLibrary.themes[editing_index] = theme_data
+	ThemeLibrary.save_all()

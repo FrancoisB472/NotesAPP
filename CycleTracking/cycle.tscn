@@ -3,12 +3,15 @@
 [ext_resource type="Script" uid="uid://cyqt4n33n34p5" path="res://NotesAPP/CycleTracking/cycle.gd" id="1_iptiq"]
 [ext_resource type="Script" uid="uid://buetsigyu3yeu" path="res://NotesAPP/CycleUI.gd" id="2_6d680"]
 [ext_resource type="Script" uid="uid://b0e1x63cj7xo2" path="res://NotesAPP/Resources/cycle_data.gd" id="2_ofca3"]
-[ext_resource type="Script" uid="uid://d2e28p1ahjhc2" path="res://NotesAPP/addons/graph_2d/graph_2d.gd" id="3_6d680"]
+[ext_resource type="Script" uid="uid://c4rv2sm2sf58c" path="res://NotesAPP/addons/graph_2d/graph_2d.gd" id="3_6d680"]
+[ext_resource type="Texture2D" uid="uid://da87fu0p3g0ap" path="res://NotesAPP/ThemeData/PNG/Add.png" id="4_82udq"]
 [ext_resource type="Script" uid="uid://d0fwfduwmrih0" path="res://NotesAPP/UtilityNodes/better_button.gd" id="4_gm8np"]
+[ext_resource type="Texture2D" uid="uid://3swit4lbtafa" path="res://NotesAPP/ThemeData/PNG/Save.png" id="6_20733"]
+[ext_resource type="Texture2D" uid="uid://xs8ii156xim5" path="res://NotesAPP/ThemeData/PNG/Delete.png" id="7_yil3p"]
+[ext_resource type="Texture2D" uid="uid://dfiu25o3pj3of" path="res://NotesAPP/ThemeData/PNG/Remove.png" id="9_8v650"]
 
 [sub_resource type="Resource" id="Resource_gm8np"]
 script = ExtResource("2_ofca3")
-metadata/_custom_type_script = "uid://dfjl2lds61vcv"
 
 [node name="Cycle" type="Control" unique_id=683803190]
 layout_mode = 3
@@ -171,17 +174,20 @@ theme_override_constants/separation = 16
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Start Period"
+icon = ExtResource("4_82udq")
 script = ExtResource("4_gm8np")
 
 [node name="EndPeriod" type="Button" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/ButtonRow" unique_id=1748282804]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "End Period"
+icon = ExtResource("6_20733")
 script = ExtResource("4_gm8np")
 
 [node name="ResetData" type="Button" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2/VBoxContainer/ButtonRow" unique_id=220759580]
 layout_mode = 2
 text = "Reset"
+icon = ExtResource("7_yil3p")
 script = ExtResource("4_gm8np")
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2" unique_id=599375264]
@@ -241,25 +247,25 @@ custom_minimum_size = Vector2(0, 380)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PainGraph" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1458939752]
+[node name="PainGraph" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1495377008]
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("3_6d680")
 x_label = "Time"
 y_label = "Pain"
-background_color = Color(0.06053035, 0.06053035, 0.060530342, 1)
+background_color = Color(0.033853278, 0.033853278, 0.033853274, 1)
 grid_vertical_visible = true
+metadata/_custom_type_script = "uid://c4rv2sm2sf58c"
 
-[node name="FlowGraph" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=824755830]
+[node name="FlowGraph" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=19635762]
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("3_6d680")
 x_label = "Time"
 y_label = "Flow"
-background_color = Color(0.06053035, 0.06053035, 0.060530342, 1)
+background_color = Color(0.03529412, 0.03529412, 0.03529412, 1)
 grid_vertical_visible = true
+metadata/_custom_type_script = "uid://c4rv2sm2sf58c"
 
 [node name="Popup" type="PanelContainer" parent="MarginContainer" unique_id=1067506083]
 visible = false
@@ -306,11 +312,13 @@ theme_override_constants/separation = 16
 layout_mode = 2
 size_flags_horizontal = 3
 text = "OK"
+icon = ExtResource("6_20733")
 
 [node name="Button2" type="Button" parent="MarginContainer/Popup/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=359187232]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Cancel"
+icon = ExtResource("9_8v650")
 
 [node name="PainBox" type="SpinBox" parent="MarginContainer/Popup/MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1617909837]
 layout_mode = 2

@@ -70,20 +70,57 @@ static func build(d: GameThemeData) -> Theme:
 		t.set_font("font", cls, fv)
 		t.set_font_size("font_size", cls, d.font_size)
 
-	# Buttons
-	var normal := apply_radius(StyleBoxFlat.new())
-	normal.bg_color = d.button_bg
+#region StyleBox buttons
+	## Buttons
+	#var normal := apply_radius(StyleBoxFlat.new())
+	#normal.bg_color = d.button_bg
+#
+	#var hover := apply_radius(StyleBoxFlat.new())
+	#hover.bg_color = d.button_hover
+#
+	#var pressed := apply_radius(StyleBoxFlat.new())
+	#pressed.bg_color = d.button_pressed
+#
+	#for cls in ["Button", "OptionButton"]:
+		#t.set_stylebox("normal", cls, normal.duplicate())
+		#t.set_stylebox("hover", cls, hover.duplicate())
+		#t.set_stylebox("pressed", cls, pressed.duplicate())
+#endregion
 
-	var hover := apply_radius(StyleBoxFlat.new())
-	hover.bg_color = d.button_hover
-
-	var pressed := apply_radius(StyleBoxFlat.new())
-	pressed.bg_color = d.button_pressed
-
+	# Buttons (texture-based instead of StyleBoxFlat)
 	for cls in ["Button", "OptionButton"]:
-		t.set_stylebox("normal", cls, normal.duplicate())
-		t.set_stylebox("hover", cls, hover.duplicate())
-		t.set_stylebox("pressed", cls, pressed.duplicate())
+
+		var normal := StyleBoxTexture.new()
+		normal.texture = d.button_texture_normal
+		normal.texture_margin_left = 3
+		normal.texture_margin_right = 3
+		normal.texture_margin_top = 3
+		normal.texture_margin_bottom = 3
+
+		var hover := StyleBoxTexture.new()
+		hover.texture = d.button_texture_hover
+		hover.texture_margin_left = 3
+		hover.texture_margin_right = 3
+		hover.texture_margin_top = 3
+		hover.texture_margin_bottom = 3
+
+		var pressed := StyleBoxTexture.new()
+		pressed.texture = d.button_texture_pressed
+		pressed.texture_margin_left = 3
+		pressed.texture_margin_right = 3
+		pressed.texture_margin_top = 3
+		pressed.texture_margin_bottom = 3
+		
+		var disabled := StyleBoxTexture.new()
+		disabled.texture = d.button_texture_pressed
+		disabled.texture_margin_left = 3
+		disabled.texture_margin_right = 3
+		disabled.texture_margin_top = 3
+		disabled.texture_margin_bottom = 3
+
+		t.set_stylebox("normal", cls, normal)
+		t.set_stylebox("hover", cls, hover)
+		t.set_stylebox("pressed", cls, pressed)
 
 	# Inputs
 	var input := apply_radius(StyleBoxFlat.new())

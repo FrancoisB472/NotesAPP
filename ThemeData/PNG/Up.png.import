@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca8k1tjagmauc"
-path="res://.godot/imported/graph_2d.svg-56c198a7fe0c73b17cef3d610dc3bd31.ctex"
+uid="uid://bq28u0rtryw0h"
+path="res://.godot/imported/Up.png-6118d3672eb2d030ec1b4410154f078f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NotesAPP/addons/graph_2d/graph_2d.svg"
-dest_files=["res://.godot/imported/graph_2d.svg-56c198a7fe0c73b17cef3d610dc3bd31.ctex"]
+source_file="res://NotesAPP/ThemeData/PNG/Up.png"
+dest_files=["res://.godot/imported/Up.png-6118d3672eb2d030ec1b4410154f078f.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

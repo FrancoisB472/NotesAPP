@@ -1,7 +1,7 @@
 extends VirtualWindow
 
 # Paths match NoteUI.tscn exactly.
-@onready var theme_options: OptionButton = $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/ThemeOptions
+@onready var theme_options: OptionButton = $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/ThemeOptions
 @onready var save_timer: Timer = $SaveTimer
 @onready var title_label: LineEdit = $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Title_Lbl
 @onready var desc: TextEdit = $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/SpellcheckTextEdit
