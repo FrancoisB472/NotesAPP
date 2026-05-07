@@ -20,6 +20,7 @@ class_name ThemeEditor
 @onready var font_file_dialog: FileDialog = $FontFileDialog
 @onready var theme_file_dialog: FileDialog = $ThemeFileDialog
 @onready var texture_file_dialog: FileDialog = $TextureFileDialog
+@onready var __btn: BetterButton = $"PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/•Btn"
 
 var theme_data: GameThemeData
 var editing_index := -1

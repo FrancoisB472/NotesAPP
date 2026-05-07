@@ -6,13 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cl4w7yiilxg02" path="res://NotesAPP/CycleTracking/cycle.tscn" id="3_gcq4y"]
 [ext_resource type="Script" uid="uid://d0fwfduwmrih0" path="res://NotesAPP/UtilityNodes/better_button.gd" id="4_nwb8l"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_3n2yy"]
-font_color = Color(1, 1, 0.050980393, 1)
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 3
-shadow_color = Color(0.24760124, 0.17351997, 0, 1)
-
 [node name="ToolWindow" type="Control" unique_id=787210304]
 layout_mode = 3
 anchors_preset = 15
@@ -97,13 +90,8 @@ fit_content = true
 
 [node name="SplashText" type="Label" parent="PanelContainer/MarginContainer/Panel/MarginContainer/TabContainer/Info Tab" unique_id=261761221]
 layout_mode = 0
-offset_left = 299.00003
-offset_top = 3.000001
-offset_right = 516.00006
-offset_bottom = 26.0
-rotation = 0.08920028
-text = "Mr.Stark I don't feel so good"
-label_settings = SubResource("LabelSettings_3n2yy")
+offset_right = 40.0
+offset_bottom = 23.0
 script = ExtResource("2_3n2yy")
 
 [node name="ThemeEditor" parent="PanelContainer/MarginContainer/Panel/MarginContainer/TabContainer" unique_id=591340044 instance=ExtResource("2_7txu1")]

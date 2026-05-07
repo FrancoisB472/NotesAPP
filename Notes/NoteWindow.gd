@@ -4,7 +4,7 @@ extends VirtualWindow
 @onready var theme_options: OptionButton = $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/ThemeOptions
 @onready var save_timer: Timer = $SaveTimer
 @onready var title_label: LineEdit = $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Title_Lbl
-@onready var desc: TextEdit = $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/SpellcheckTextEdit
+@onready var desc: TextEdit = $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer3/SpellcheckTextEdit
 @onready var progress_bar: BetterProgressBar= $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/ProgressBar
 @onready var popup_panel: PopupPanel = $PopupPanel
 @onready var font_spin_box: SpinBox = $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer/SpinBox
@@ -15,14 +15,41 @@ var is_dirty := false
 var theme_cache: Dictionary = {}
 var completed : bool = false
 
+var faces : Array[String] = [
+	"(☞ ͡° ͜ʖ ͡°)☞",
+	"( ͡° ͜ʖ ͡°)",
+	"( •̯́ ₃ •̯̀)",
+	"(*ᴗ͈ˬᴗ͈)ꕤ*.ﾟ",
+	"ദ്ദി ˉ͈̀꒳ˉ͈́ )✧",
+	"◉‿◉",
+	"(¬_¬\")",
+	"▶• ılıılıılıılıılıılı. 0",
+	"(づ ᴗ _ᴗ)づ♡",
+	"(⊙_⊙)",
+	"≽^•⩊•^≼",
+	"ᐠ( ᐛ )ᐟ",
+	"(╥﹏╥)",
+	"˙◠˙",
+	"☆⋆｡𖦹°‧★",
+	"⋆˖⁺‧₊☽◯☾₊‧⁺˖⋆",
+	"🐮",
+	"🦖",
+	"🦕",
+	"🐍",
+	"💀",
+	"ඞ",
+	"🦍💨",
+]
+var random_face : String
+
 func _ready():
 	super()
-
+	random_face = faces[randi() % faces.size()]
 	if note:
 		position = Vector2i(note.position)
 		if note.size != Vector2.ZERO:
 			size = Vector2i(note.size)
-		title = note.title        # OS window title bar
+		title = note.title
 		title_label.text = note.title
 		desc.text = note.main_text
 
@@ -52,8 +79,8 @@ func _on_save_timer_timeout():
 
 func _on_title_changed(new_text: String):
 	if note:
-		note.title = new_text
-		title = new_text
+		note.title = str("%s %s" % [random_face, new_text])
+		title = str("%s %s" % [random_face, new_text])
 		is_dirty = true
 		save_timer.start()
 
@@ -228,3 +255,6 @@ func _on_rem_prog_btn_pressed() -> void:
 func _on_spin_box_value_changed(value: float) -> void:
 	var toolWindow : MainWindow = get_tree().root.get_node("/root/ToolWindow")
 	toolWindow.theme_editor.font_size_box.value = value
+
+func _on_dotbtn_pressed() -> void:
+	desc.insert_text_at_caret("	•	")
