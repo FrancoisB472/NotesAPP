@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ywwen68t6ba3" path="res://NotesAPP/ThemeData/PNG/Down.png" id="6_hhx7i"]
 [ext_resource type="Texture2D" uid="uid://da87fu0p3g0ap" path="res://NotesAPP/ThemeData/PNG/Add.png" id="8_hhx7i"]
 [ext_resource type="Texture2D" uid="uid://dfiu25o3pj3of" path="res://NotesAPP/ThemeData/PNG/Remove.png" id="9_y75p5"]
+[ext_resource type="Script" uid="uid://dapmbv18fdpl0" path="res://NotesAPP/UtilityNodes/better_progress_bar.gd" id="10_y75p5"]
 
 [sub_resource type="Resource" id="Resource_bjgnl"]
 script = ExtResource("2_bjgnl")
@@ -124,17 +125,16 @@ size_flags_vertical = 3
 placeholder_text = "Write something here"
 highlight_all_occurrences = true
 script = ExtResource("5_iyjfw")
-DICTIONARY_PATH = null
-SOURCE_DICTIONARY = null
 metadata/_custom_type_script = "uid://bueiiy0xdcx83"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=714894771]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=677173281]
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=462246986]
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("10_y75p5")
 
 [node name="Add_Prog_Btn" type="Button" parent="PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1069777302]
 custom_minimum_size = Vector2(40, 0)

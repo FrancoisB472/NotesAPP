@@ -86,12 +86,21 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 16
 
-[node name="Btn__New" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=430952519]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=51239653]
+layout_mode = 2
+
+[node name="Btn__New" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/HBoxContainer" unique_id=430952519]
 layout_mode = 2
 size_flags_vertical = 3
 text = "New Theme"
 icon = ExtResource("3_gy3ku")
 script = ExtResource("4_bpja1")
+
+[node name="Btn_Select" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/HBoxContainer" unique_id=824527748]
+layout_mode = 2
+text = "Select Theme"
+script = ExtResource("4_bpja1")
+metadata/_custom_type_script = "uid://d0fwfduwmrih0"
 
 [node name="Btn_Save" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel" unique_id=2038743519]
 layout_mode = 2
@@ -370,7 +379,15 @@ file_mode = 0
 access = 2
 use_native_dialog = true
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/Btn__New" to="." method="_on_new_theme_pressed"]
+[node name="ThemeFileDialog" type="FileDialog" parent="." unique_id=979692847]
+title = "Open a File"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.tres ; Godot Theme", "*.res ; Godot Theme")
+use_native_dialog = true
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/HBoxContainer/Btn__New" to="." method="_on_new_theme_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/HBoxContainer/Btn_Select" to="." method="_on_btn_select_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/Btn_Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/Btn_Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LeftPanel/PanelContainer/MarginContainer/HBoxContainer/NormalBtn" to="." method="_on_button_normal_select_pressed"]
@@ -381,3 +398,4 @@ use_native_dialog = true
 [connection signal="pressed" from="DeletePopup/VBoxContainer/HBoxContainer/Btn_No" to="." method="_on_btn_no_pressed"]
 [connection signal="file_selected" from="FontFileDialog" to="." method="_on_font_file_dialog_file_selected"]
 [connection signal="file_selected" from="TextureFileDialog" to="." method="_on_texture_file_selected"]
+[connection signal="file_selected" from="ThemeFileDialog" to="." method="_on_theme_file_dialog_file_selected"]

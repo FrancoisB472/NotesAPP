@@ -10,19 +10,15 @@ static func apply_radius(sb: StyleBoxFlat, r := 8) -> StyleBoxFlat:
 	sb.expand_margin_bottom = r / 2
 	sb.expand_margin_top = r / 2
 	sb.expand_margin_left = r / 2
-	sb.expand_margin_right = r/ 2
-	
+	sb.expand_margin_right = r / 2
 	return sb
-
 
 static func build(d: GameThemeData) -> Theme:
 	var t = Theme.new()
 
-	# Base colors
 	var base_color := d.container_bg
 	var panel_color := base_color.darkened(0.12)
 
-	# Containers
 	var panel := apply_radius(StyleBoxFlat.new())
 	panel.bg_color = panel_color
 
@@ -35,7 +31,7 @@ static func build(d: GameThemeData) -> Theme:
 
 	d.id = str(Time.get_unix_time_from_system())
 
-	var _container_style = tex if d.container_texture else base
+	var container_style = tex if d.container_texture else base
 
 	var normal_container_classes = [
 		"Panel",
@@ -48,15 +44,12 @@ static func build(d: GameThemeData) -> Theme:
 	]
 
 	for cls in normal_container_classes:
-		t.set_stylebox("panel", cls, base.duplicate())
+		t.set_stylebox("panel", cls, container_style.duplicate())
 
-	# PanelContainer (darker)
 	t.set_stylebox("panel", "PanelContainer", panel.duplicate())
 
-	# Text
-	
+	# Font
 	var font: Font = null
-
 	if d.font_path != "":
 		var f := FontFile.new()
 		if f.load_dynamic_font(d.font_path) == OK:
@@ -70,26 +63,14 @@ static func build(d: GameThemeData) -> Theme:
 		t.set_font("font", cls, fv)
 		t.set_font_size("font_size", cls, d.font_size)
 
-#region StyleBox buttons
-	## Buttons
-	#var normal := apply_radius(StyleBoxFlat.new())
-	#normal.bg_color = d.button_bg
-#
-	#var hover := apply_radius(StyleBoxFlat.new())
-	#hover.bg_color = d.button_hover
-#
-	#var pressed := apply_radius(StyleBoxFlat.new())
-	#pressed.bg_color = d.button_pressed
-#
-	#for cls in ["Button", "OptionButton"]:
-		#t.set_stylebox("normal", cls, normal.duplicate())
-		#t.set_stylebox("hover", cls, hover.duplicate())
-		#t.set_stylebox("pressed", cls, pressed.duplicate())
-#endregion
+	# Text colors
+	for cls in ["Label", "RichTextLabel"]:
+		t.set_color("font_color", cls, d.text_colour)
+	t.set_color("font_color", "Button", d.text_colour)
+	t.set_color("font_color", "LineEdit", d.text_colour)
 
-	# Buttons (texture-based instead of StyleBoxFlat)
+	# Buttons
 	for cls in ["Button", "OptionButton"]:
-
 		var normal := StyleBoxTexture.new()
 		normal.texture = d.button_texture_normal
 		normal.texture_margin_left = 3
@@ -110,7 +91,7 @@ static func build(d: GameThemeData) -> Theme:
 		pressed.texture_margin_right = 3
 		pressed.texture_margin_top = 3
 		pressed.texture_margin_bottom = 3
-		
+
 		var disabled := StyleBoxTexture.new()
 		disabled.texture = d.button_texture_pressed
 		disabled.texture_margin_left = 3
@@ -121,6 +102,7 @@ static func build(d: GameThemeData) -> Theme:
 		t.set_stylebox("normal", cls, normal)
 		t.set_stylebox("hover", cls, hover)
 		t.set_stylebox("pressed", cls, pressed)
+		t.set_stylebox("disabled", cls, disabled)
 
 	# Inputs
 	var input := apply_radius(StyleBoxFlat.new())

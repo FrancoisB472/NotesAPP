@@ -5,7 +5,7 @@ extends VirtualWindow
 @onready var save_timer: Timer = $SaveTimer
 @onready var title_label: LineEdit = $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Title_Lbl
 @onready var desc: TextEdit = $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/SpellcheckTextEdit
-@onready var progress_bar: ProgressBar = $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/ProgressBar
+@onready var progress_bar: BetterProgressBar= $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/ProgressBar
 @onready var popup_panel: PopupPanel = $PopupPanel
 @onready var font_spin_box: SpinBox = $PanelContainer/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/HBoxContainer/SpinBox
 
@@ -220,10 +220,10 @@ func save_timer_timeout():
 	_on_save_pressed()
 
 func _on_add_prog_btn_pressed() -> void:
-	progress_bar.value += 10
+	progress_bar.set_smooth_value(progress_bar.value + 10)
 
 func _on_rem_prog_btn_pressed() -> void:
-	progress_bar.value -= 10
+	progress_bar.set_smooth_value(progress_bar.value - 10)
 
 func _on_spin_box_value_changed(value: float) -> void:
 	var toolWindow : MainWindow = get_tree().root.get_node("/root/ToolWindow")
